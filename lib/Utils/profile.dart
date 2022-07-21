@@ -24,24 +24,31 @@ class Profile extends StatelessWidget {
             border: Border.all(width: 2, color: Colors.white30),
           ),
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              const ProfilePhoto(),
-              Text(
-                "Siddharth",
-                style: GoogleFonts.squarePeg(
-                  textStyle: const TextStyle(
-                      color: Colors.white,
-                      fontSize: 70,
-                      fontWeight: FontWeight.w600),
-                ),
-              ),
-              Text(
-                "Full Stack Developer",
-                style: GoogleFonts.dosis(
-                  textStyle: const TextStyle(
-                      color: Colors.white,
-                      fontSize: 25,
-                      fontWeight: FontWeight.w600),
+              SizedBox(
+                child: Column(
+                  children: [
+                    const ProfilePhoto(),
+                    Text(
+                      "Siddharth",
+                      style: GoogleFonts.squarePeg(
+                        textStyle: TextStyle(
+                            color: Colors.white,
+                            fontSize: height * 0.115,
+                            fontWeight: FontWeight.w600),
+                      ),
+                    ),
+                    Text(
+                      "Full Stack Developer | CEH",
+                      style: GoogleFonts.dosis(
+                        textStyle: TextStyle(
+                            color: Colors.white,
+                            fontSize: height * 0.03,
+                            fontWeight: FontWeight.w600),
+                      ),
+                    ),
+                  ],
                 ),
               ),
               const SocialHandleWidgets(),

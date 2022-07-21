@@ -1,7 +1,6 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:newportfolio/Utils/social_handle_icons.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 class SocialHandleWidgets extends StatefulWidget {
   const SocialHandleWidgets({Key? key}) : super(key: key);
@@ -10,35 +9,47 @@ class SocialHandleWidgets extends StatefulWidget {
   State<SocialHandleWidgets> createState() => _SocialHandleWidgetsState();
 }
 
+void redirect(String url) async {
+  await launchUrlString(url);
+}
+
 class _SocialHandleWidgetsState extends State<SocialHandleWidgets> {
   @override
   Widget build(BuildContext context) {
-    var height = MediaQuery.of(context).size.height;
-    var width = MediaQuery.of(context).size.height;
-    return Row(
-      children: [
-        ClipRRect(
-          borderRadius: BorderRadius.circular(25),
-          child: BackdropFilter(
-            filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
-            child: Container(
-              height: height * 0.1,
-              width: width * 0.1,
-              decoration: BoxDecoration(
-                color: Colors.white.withOpacity(0.3),
-                borderRadius: BorderRadius.circular(25),
-                border: Border.all(width: 2, color: Colors.white30),
-              ),
-              child: SvgPicture.asset(
-                "assets/images/githubsvg.svg",
-                color: Colors.white,
-                height: height * 0.075,
-                width: width * 0.075,
-              ),
+    double width = MediaQuery.of(context).size.height;
+    return Padding(
+      padding: EdgeInsets.only(left: width * 0.10, right: width * 0.10),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          GestureDetector(
+            onTap: () {
+              redirect("https://github.com/Siddharth-rajput2201");
+            },
+            child: const SocialHandleIcon(
+              svgpath: "assets/images/githubsvg.svg",
             ),
           ),
-        )
-      ],
+          GestureDetector(
+            onTap: () {
+              redirect(
+                  "https://www.linkedin.com/in/siddharth-rajput-8111a1194/");
+            },
+            child: const SocialHandleIcon(
+              svgpath: "assets/images/linkedinsvg.svg",
+            ),
+          ),
+          GestureDetector(
+            onTap: () {
+              redirect(
+                  "https://drive.google.com/file/d/1VKHADq2XX8OMX7FCIFtn8ivG-WNaAlLT/view?usp=sharing");
+            },
+            child: const SocialHandleIcon(
+              svgpath: "assets/images/resumesvg2.svg",
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

@@ -36,6 +36,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   google_fonts: ^3.0.1
   flutter_svg: ^1.1.1+1
+  url_launcher: ^6.1.5
 
 dev_dependencies:
   flutter_test:
@@ -64,6 +65,9 @@ flutter:
     - assets/images/background.jpg
     - assets/images/profile_photo.jpeg
     - assets/images/githubsvg.svg
+    - assets/images/linkedinsvg.svg
+    - assets/images/resumesvg.svg
+    - assets/images/resumesvg2.svg
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
