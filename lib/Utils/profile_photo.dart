@@ -13,7 +13,7 @@ class _ProfilePhotoState extends State<ProfilePhoto> {
     double height = MediaQuery.of(context).size.height;
     //  double width = MediaQuery.of(context).size.width;
     return Container(
-      padding: const EdgeInsets.all(1), // Border width
+      padding: const EdgeInsets.all(3 / 2), // Border width
       decoration:
           const BoxDecoration(color: Colors.white, shape: BoxShape.circle),
       child: ClipOval(
