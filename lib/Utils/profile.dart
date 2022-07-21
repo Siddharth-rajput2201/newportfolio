@@ -15,7 +15,8 @@ class Profile extends StatelessWidget {
       borderRadius: BorderRadius.circular(25),
       child: BackdropFilter(
         filter: ImageFilter.blur(sigmaX: 1.5, sigmaY: 1.5),
-        child: Container(
+        child: AnimatedContainer(
+          duration: const Duration(microseconds: 1600),
           height: height * 0.75,
           width: width * 0.6,
           decoration: BoxDecoration(
@@ -35,7 +36,7 @@ class Profile extends StatelessWidget {
                       style: GoogleFonts.squarePeg(
                         textStyle: TextStyle(
                             color: Colors.white,
-                            fontSize: height * 0.115,
+                            fontSize: height * 0.11,
                             fontWeight: FontWeight.w600),
                       ),
                     ),

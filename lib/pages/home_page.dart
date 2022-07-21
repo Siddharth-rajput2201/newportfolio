@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:newportfolio/Utils/contact.dart';
 import 'package:newportfolio/Utils/profile.dart';
+import 'package:newportfolio/Utils/projects.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -11,7 +13,6 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    
     return Scaffold(
       body: Container(
           alignment: Alignment.center,
@@ -21,7 +22,19 @@ class _HomePageState extends State<HomePage> {
               fit: BoxFit.cover,
             ),
           ),
-          child: const Profile()),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: const [
+                  Projects(),
+                  Contact(),
+                ],
+              ),
+              const Profile(),
+            ],
+          )),
     );
   }
 }
