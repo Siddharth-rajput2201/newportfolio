@@ -1,6 +1,8 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:newportfolio/Utils/custom_snackbar.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class Contact extends StatefulWidget {
@@ -95,34 +97,52 @@ class _ContactState extends State<Contact> {
                           sigmaX: isMailhovered ? 20 : 25,
                           sigmaY: isMailhovered ? 20 : 25,
                         ),
-                        child: AnimatedContainer(
-                          duration: const Duration(microseconds: 1500),
-                          height: height * 0.05,
-                          width: width * 0.40,
-                          decoration: BoxDecoration(
-                            color: Colors.white
-                                .withOpacity(isMailhovered ? 0.5 : 0.25),
-                            borderRadius: BorderRadius.circular(25),
-                            border: Border.all(
-                                width: 2,
-                                color: isMailhovered
-                                    ? Colors.white
-                                    : Colors.white30),
-                          ),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text(
-                                "RAJPUTSIDDHARTH18@GMAIL.COM",
-                                style: GoogleFonts.dosis(
-                                  textStyle: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: height * 0.025,
-                                    fontWeight: FontWeight.w600,
+                        child: GestureDetector(
+                          onTap: () {
+                            setState(() {
+                              isMailhovered = true;
+                            });
+                            var data = const ClipboardData(
+                                text: "rajputsiddharth18@gmail.com");
+                            Clipboard.setData(data);
+                            customSnackBar(
+                                context, "COPIED TO CLIPBOARD", Colors.black54);
+                            setState(() {
+                              isMailhovered = false;
+                            });
+                            setState(() {
+                              isMailhovered = false;
+                            });
+                          },
+                          child: AnimatedContainer(
+                            duration: const Duration(microseconds: 1500),
+                            height: height * 0.05,
+                            width: width * 0.40,
+                            decoration: BoxDecoration(
+                              color: Colors.white
+                                  .withOpacity(isMailhovered ? 0.5 : 0.25),
+                              borderRadius: BorderRadius.circular(25),
+                              border: Border.all(
+                                  width: 2,
+                                  color: isMailhovered
+                                      ? Colors.white
+                                      : Colors.white30),
+                            ),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  "RAJPUTSIDDHARTH18@GMAIL.COM",
+                                  style: GoogleFonts.dosis(
+                                    textStyle: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: height * 0.025,
+                                      fontWeight: FontWeight.w600,
+                                    ),
                                   ),
                                 ),
-                              ),
-                            ],
+                              ],
+                            ),
                           ),
                         ),
                       ),
@@ -148,7 +168,13 @@ class _ContactState extends State<Contact> {
                         ),
                         child: GestureDetector(
                           onTap: () {
+                            setState(() {
+                              isSendEmailHovered = true;
+                            });
                             sendEmail();
+                            setState(() {
+                              isSendEmailHovered = false;
+                            });
                           },
                           child: AnimatedContainer(
                             duration: const Duration(microseconds: 1500),
@@ -202,34 +228,49 @@ class _ContactState extends State<Contact> {
                           sigmaX: isContacthovered ? 20 : 25,
                           sigmaY: isContacthovered ? 20 : 25,
                         ),
-                        child: AnimatedContainer(
-                          duration: const Duration(microseconds: 1500),
-                          height: height * 0.05,
-                          width: width * 0.40,
-                          decoration: BoxDecoration(
-                            color: Colors.white
-                                .withOpacity(isContacthovered ? 0.5 : 0.25),
-                            borderRadius: BorderRadius.circular(25),
-                            border: Border.all(
-                                width: 2,
-                                color: isContacthovered
-                                    ? Colors.white
-                                    : Colors.white30),
-                          ),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text(
-                                "+918368313300",
-                                style: GoogleFonts.dosis(
-                                  textStyle: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: height * 0.025,
-                                    fontWeight: FontWeight.w600,
+                        child: GestureDetector(
+                          onTap: () {
+                            setState(() {
+                              isContacthovered = true;
+                            });
+                            var data =
+                                const ClipboardData(text: "918368313300");
+                            Clipboard.setData(data);
+                            customSnackBar(
+                                context, "COPIED TO CLIPBOARD", Colors.black54);
+                            setState(() {
+                              isContacthovered = false;
+                            });
+                          },
+                          child: AnimatedContainer(
+                            duration: const Duration(microseconds: 1500),
+                            height: height * 0.05,
+                            width: width * 0.40,
+                            decoration: BoxDecoration(
+                              color: Colors.white
+                                  .withOpacity(isContacthovered ? 0.5 : 0.25),
+                              borderRadius: BorderRadius.circular(25),
+                              border: Border.all(
+                                  width: 2,
+                                  color: isContacthovered
+                                      ? Colors.white
+                                      : Colors.white30),
+                            ),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  "+918368313300",
+                                  style: GoogleFonts.dosis(
+                                    textStyle: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: height * 0.025,
+                                      fontWeight: FontWeight.w600,
+                                    ),
                                   ),
                                 ),
-                              ),
-                            ],
+                              ],
+                            ),
                           ),
                         ),
                       ),
@@ -255,7 +296,13 @@ class _ContactState extends State<Contact> {
                         ),
                         child: GestureDetector(
                           onTap: () {
+                            setState(() {
+                              isCallHovered = true;
+                            });
                             sendSms();
+                            setState(() {
+                              isCallHovered = false;
+                            });
                           },
                           child: AnimatedContainer(
                             duration: const Duration(microseconds: 1500),

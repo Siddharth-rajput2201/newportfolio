@@ -82,19 +82,25 @@ class _MobileState extends State<Mobile> {
               fit: BoxFit.cover,
             ),
           ),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: const [
-              Profile(),
-              SizedBox(
-                height: 20,
-              ),
-              Projects(),
-              SizedBox(
-                height: 20,
-              ),
-              Contact(),
-            ],
+          child: Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: const [
+                Profile(),
+                SizedBox(
+                  height: 20,
+                ),
+                Projects(),
+                SizedBox(
+                  height: 20,
+                ),
+                Contact(),
+                SizedBox(
+                  height: 10,
+                ),
+              ],
+            ),
           ),
         ),
       ),

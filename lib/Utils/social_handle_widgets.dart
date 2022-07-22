@@ -22,34 +22,22 @@ class _SocialHandleWidgetsState extends State<SocialHandleWidgets> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          GestureDetector(
-            onTap: () {
-              redirect("https://github.com/Siddharth-rajput2201");
-            },
-            child: const SocialHandleIcon(
-              svgpath: "assets/images/githubsvg.svg",
-              iconhovercolor: Colors.black87,
-            ),
+          const SocialHandleIcon(
+            redirecturl: "https://github.com/Siddharth-rajput2201",
+            svgpath: "assets/images/githubsvg.svg",
+            iconhovercolor: Colors.black87,
           ),
-          GestureDetector(
-            onTap: () {
-              redirect(
-                  "https://www.linkedin.com/in/siddharth-rajput-8111a1194/");
-            },
-            child: SocialHandleIcon(
-              svgpath: "assets/images/linkedinsvg.svg",
-              iconhovercolor: Colors.blue[400]!,
-            ),
+          SocialHandleIcon(
+            svgpath: "assets/images/linkedinsvg.svg",
+            redirecturl:
+                "https://www.linkedin.com/in/siddharth-rajput-8111a1194/",
+            iconhovercolor: Colors.blue[400]!,
           ),
-          GestureDetector(
-            onTap: () {
-              redirect(
-                  "https://drive.google.com/file/d/1VKHADq2XX8OMX7FCIFtn8ivG-WNaAlLT/view?usp=sharing");
-            },
-            child: const SocialHandleIcon(
-              iconhovercolor: Colors.white,
-              svgpath: "assets/images/resumesvg2.svg",
-            ),
+          const SocialHandleIcon(
+            redirecturl:
+                "https://drive.google.com/file/d/1VKHADq2XX8OMX7FCIFtn8ivG-WNaAlLT/view?usp=sharing",
+            iconhovercolor: Colors.white,
+            svgpath: "assets/images/resumesvg2.svg",
           ),
         ],
       ),

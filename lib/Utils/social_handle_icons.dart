@@ -1,14 +1,25 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 class SocialHandleIcon extends StatefulWidget {
   final String svgpath;
   final Color iconhovercolor;
-  const SocialHandleIcon({Key? key, required this.svgpath,required this.iconhovercolor}) : super(key: key);
+  final String redirecturl;
+  const SocialHandleIcon(
+      {Key? key,
+      required this.svgpath,
+      required this.iconhovercolor,
+      required this.redirecturl})
+      : super(key: key);
 
   @override
   State<SocialHandleIcon> createState() => _SocialHandleIconState();
+}
+
+void redirect(String url) async {
+  await launchUrlString(url);
 }
 
 class _SocialHandleIconState extends State<SocialHandleIcon> {
@@ -37,23 +48,34 @@ class _SocialHandleIconState extends State<SocialHandleIcon> {
             sigmaX: ishovered ? 20 : 25,
             sigmaY: ishovered ? 20 : 25,
           ),
-          child: AnimatedContainer(
-            duration: const Duration(microseconds: 1500),
-            height: height * 0.1,
-            width: width * 0.1,
-            decoration: BoxDecoration(
-              color: Colors.white.withOpacity(ishovered ? 0.5 : 0.25),
-              borderRadius: BorderRadius.circular(25),
-              border: Border.all(
-                  width: 2, color: ishovered ? Colors.white : Colors.white30),
-            ),
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: SvgPicture.asset(
-                widget.svgpath,
-                color: ishovered?widget.iconhovercolor : Colors.white,
-                height: height * 0.075,
-                width: width * 0.075,
+          child: GestureDetector(
+            onTap: () {
+              setState(() {
+                ishovered = true;
+              });
+              redirect(widget.redirecturl);
+              setState(() {
+                ishovered = false;
+              });
+            },
+            child: AnimatedContainer(
+              duration: const Duration(microseconds: 1500),
+              height: height * 0.1,
+              width: width * 0.1,
+              decoration: BoxDecoration(
+                color: Colors.white.withOpacity(ishovered ? 0.5 : 0.25),
+                borderRadius: BorderRadius.circular(25),
+                border: Border.all(
+                    width: 2, color: ishovered ? Colors.white : Colors.white30),
+              ),
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: SvgPicture.asset(
+                  widget.svgpath,
+                  color: ishovered ? widget.iconhovercolor : Colors.white,
+                  height: height * 0.075,
+                  width: width * 0.075,
+                ),
               ),
             ),
           ),

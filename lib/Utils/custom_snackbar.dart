@@ -5,7 +5,7 @@ ScaffoldFeatureController customSnackBar(
   double width = MediaQuery.of(context).size.width;
   return ScaffoldMessenger.of(context).showSnackBar(
     SnackBar(
-      width: width < 640 ? width - 10 : width / 2.85,
+      width: width < 800 ? width - 10 : width / 2.85,
       content: Text(msg),
       behavior: SnackBarBehavior.floating,
       backgroundColor: snackBarColor,
