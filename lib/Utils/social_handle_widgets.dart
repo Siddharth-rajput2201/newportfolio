@@ -28,6 +28,7 @@ class _SocialHandleWidgetsState extends State<SocialHandleWidgets> {
             },
             child: const SocialHandleIcon(
               svgpath: "assets/images/githubsvg.svg",
+              iconhovercolor: Colors.black87,
             ),
           ),
           GestureDetector(
@@ -35,8 +36,9 @@ class _SocialHandleWidgetsState extends State<SocialHandleWidgets> {
               redirect(
                   "https://www.linkedin.com/in/siddharth-rajput-8111a1194/");
             },
-            child: const SocialHandleIcon(
+            child: SocialHandleIcon(
               svgpath: "assets/images/linkedinsvg.svg",
+              iconhovercolor: Colors.blue[400]!,
             ),
           ),
           GestureDetector(
@@ -45,6 +47,7 @@ class _SocialHandleWidgetsState extends State<SocialHandleWidgets> {
                   "https://drive.google.com/file/d/1VKHADq2XX8OMX7FCIFtn8ivG-WNaAlLT/view?usp=sharing");
             },
             child: const SocialHandleIcon(
+              iconhovercolor: Colors.white,
               svgpath: "assets/images/resumesvg2.svg",
             ),
           ),

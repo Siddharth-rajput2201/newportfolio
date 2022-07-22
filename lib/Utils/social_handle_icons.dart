@@ -4,7 +4,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 class SocialHandleIcon extends StatefulWidget {
   final String svgpath;
-  const SocialHandleIcon({Key? key, required this.svgpath}) : super(key: key);
+  final Color iconhovercolor;
+  const SocialHandleIcon({Key? key, required this.svgpath,required this.iconhovercolor}) : super(key: key);
 
   @override
   State<SocialHandleIcon> createState() => _SocialHandleIconState();
@@ -50,7 +51,7 @@ class _SocialHandleIconState extends State<SocialHandleIcon> {
               padding: const EdgeInsets.all(8.0),
               child: SvgPicture.asset(
                 widget.svgpath,
-                color: Colors.white,
+                color: ishovered?widget.iconhovercolor : Colors.white,
                 height: height * 0.075,
                 width: width * 0.075,
               ),

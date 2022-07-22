@@ -166,10 +166,11 @@ class _ContactState extends State<Contact> {
                             ),
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
-                              children: const [
+                              children: [
                                 Icon(
                                   Icons.email_outlined,
                                   color: Colors.white,
+                                  size: height * 0.025,
                                 )
                               ],
                             ),
@@ -272,10 +273,13 @@ class _ContactState extends State<Contact> {
                             ),
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
-                              children: const [
+                              children: [
                                 Icon(
                                   Icons.call,
-                                  color: Colors.white,
+                                  color: isCallHovered
+                                      ? Colors.greenAccent
+                                      : Colors.white,
+                                  size: height * 0.025,
                                 )
                               ],
                             ),
