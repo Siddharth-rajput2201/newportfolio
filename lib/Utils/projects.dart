@@ -37,12 +37,7 @@ class _ProjectsState extends State<Projects> {
           ),
           child: GestureDetector(
             onTap: () {
-              setState(() {
-                ishovered = true;
-              });
-              setState(() {
-                ishovered = false;
-              });
+             
             },
             child: AnimatedContainer(
               duration: const Duration(microseconds: 1500),

@@ -45,36 +45,25 @@ class _SocialHandleIconState extends State<SocialHandleIcon> {
         borderRadius: BorderRadius.circular(25),
         child: BackdropFilter(
           filter: ImageFilter.blur(
-            sigmaX: ishovered ? 20 : 25,
-            sigmaY: ishovered ? 20 : 25,
+            sigmaX: ishovered ? 20 : 1.5,
+            sigmaY: ishovered ? 20 : 1.5,
           ),
-          child: GestureDetector(
-            onTap: () {
-              setState(() {
-                ishovered = true;
-              });
-              redirect(widget.redirecturl);
-              setState(() {
-                ishovered = false;
-              });
-            },
-            child: Container(
-              height: height * 0.1,
-              width: width * 0.1,
-              decoration: BoxDecoration(
-                color: Colors.white.withOpacity(ishovered ? 0.5 : 0.25),
-                borderRadius: BorderRadius.circular(25),
-                border: Border.all(
-                    width: 2, color: ishovered ? Colors.white : Colors.white30),
-              ),
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: SvgPicture.asset(
-                  widget.svgpath,
-                  color: ishovered ? widget.iconhovercolor : Colors.white,
-                  height: height * 0.075,
-                  width: width * 0.075,
-                ),
+          child: Container(
+            height: height * 0.1,
+            width: width * 0.1,
+            decoration: BoxDecoration(
+              color: Colors.white.withOpacity(ishovered ? 0.5 : 0.25),
+              borderRadius: BorderRadius.circular(25),
+              border: Border.all(
+                  width: 2, color: ishovered ? Colors.white : Colors.white30),
+            ),
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: SvgPicture.asset(
+                widget.svgpath,
+                color: ishovered ? widget.iconhovercolor : Colors.white,
+                height: height * 0.075,
+                width: width * 0.075,
               ),
             ),
           ),
