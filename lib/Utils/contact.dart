@@ -46,7 +46,7 @@ class _ContactState extends State<Contact> {
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
-    double width = MediaQuery.of(context).size.height;
+    double width = MediaQuery.of(context).size.width;
     return ClipRRect(
       borderRadius: BorderRadius.circular(25),
       child: BackdropFilter(
@@ -56,7 +56,7 @@ class _ContactState extends State<Contact> {
         ),
         child: Container(
           height: height * 0.35,
-          width: width < 800 ? width * 0.6 : width * 0.50,
+          width: width < 800 ? width * 0.65 : width * 0.3,
           decoration: BoxDecoration(
             color: Colors.white.withOpacity(0.3),
             borderRadius: BorderRadius.circular(25),
@@ -96,50 +96,54 @@ class _ContactState extends State<Contact> {
                           sigmaX: isMailhovered ? 20 : 25,
                           sigmaY: isMailhovered ? 20 : 25,
                         ),
-                        child: GestureDetector(
-                          onTap: () {
-                            setState(() {
-                              isMailhovered = true;
-                            });
-                            var data = const ClipboardData(
-                                text: "rajputsiddharth18@gmail.com");
-                            Clipboard.setData(data);
-                            customSnackBar(
-                                context, "COPIED TO CLIPBOARD", Colors.black54);
-                            setState(() {
-                              isMailhovered = false;
-                            });
-                            setState(() {
-                              isMailhovered = false;
-                            });
-                          },
-                          child: Container(
-                            height: height * 0.05,
-                            width: width * 0.40,
-                            decoration: BoxDecoration(
-                              color: Colors.white
-                                  .withOpacity(isMailhovered ? 0.5 : 0.25),
-                              borderRadius: BorderRadius.circular(25),
-                              border: Border.all(
-                                  width: 2,
-                                  color: isMailhovered
-                                      ? Colors.white
-                                      : Colors.white30),
-                            ),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Text(
-                                  "RAJPUTSIDDHARTH18@GMAIL.COM",
-                                  style: GoogleFonts.dosis(
-                                    textStyle: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: height * 0.025,
-                                      fontWeight: FontWeight.w600,
+                        child: Material(
+                          color: Colors.transparent,
+                          child: InkWell(
+                            highlightColor: Colors.transparent,
+                            onTap: () {
+                              setState(() {
+                                isMailhovered = true;
+                              });
+                              var data = const ClipboardData(
+                                  text: "rajputsiddharth18@gmail.com");
+                              Clipboard.setData(data);
+                              customSnackBar(context, "COPIED TO CLIPBOARD",
+                                  Colors.black54);
+                              setState(() {
+                                isMailhovered = false;
+                              });
+                              setState(() {
+                                isMailhovered = false;
+                              });
+                            },
+                            child: Container(
+                              height: height * 0.05,
+                              width: width < 800 ? width * 0.45 : width * 0.20,
+                              decoration: BoxDecoration(
+                                color: Colors.white
+                                    .withOpacity(isMailhovered ? 0.5 : 0.25),
+                                borderRadius: BorderRadius.circular(25),
+                                border: Border.all(
+                                    width: 2,
+                                    color: isMailhovered
+                                        ? Colors.white
+                                        : Colors.white30),
+                              ),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    "RAJPUTSIDDHARTH18@GMAIL.COM",
+                                    style: GoogleFonts.dosis(
+                                      textStyle: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: height * 0.025,
+                                        fontWeight: FontWeight.w600,
+                                      ),
                                     ),
                                   ),
-                                ),
-                              ],
+                                ],
+                              ),
                             ),
                           ),
                         ),
@@ -164,38 +168,42 @@ class _ContactState extends State<Contact> {
                           sigmaX: isSendEmailHovered ? 20 : 25,
                           sigmaY: isSendEmailHovered ? 20 : 25,
                         ),
-                        child: GestureDetector(
-                          onTap: () {
-                            setState(() {
-                              isSendEmailHovered = true;
-                            });
-                            sendEmail();
-                            setState(() {
-                              isSendEmailHovered = false;
-                            });
-                          },
-                          child: Container(
-                            height: height * 0.05,
-                            width: width * 0.05,
-                            decoration: BoxDecoration(
-                              color: Colors.white
-                                  .withOpacity(isSendEmailHovered ? 0.5 : 0.25),
-                              borderRadius: BorderRadius.circular(25),
-                              border: Border.all(
-                                  width: 2,
-                                  color: isSendEmailHovered
-                                      ? Colors.white
-                                      : Colors.white30),
-                            ),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Icon(
-                                  Icons.email_outlined,
-                                  color: Colors.white,
-                                  size: height * 0.025,
-                                )
-                              ],
+                        child: Material(
+                          color: Colors.transparent,
+                          child: InkWell(
+                            highlightColor: Colors.transparent,
+                            onTap: () {
+                              setState(() {
+                                isSendEmailHovered = true;
+                              });
+                              sendEmail();
+                              setState(() {
+                                isSendEmailHovered = false;
+                              });
+                            },
+                            child: Container(
+                              height: height * 0.05,
+                              width: width < 800 ? width * 0.05 : width * 0.035,
+                              decoration: BoxDecoration(
+                                color: Colors.white.withOpacity(
+                                    isSendEmailHovered ? 0.5 : 0.25),
+                                borderRadius: BorderRadius.circular(25),
+                                border: Border.all(
+                                    width: 2,
+                                    color: isSendEmailHovered
+                                        ? Colors.white
+                                        : Colors.white30),
+                              ),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Icon(
+                                    Icons.email_outlined,
+                                    color: Colors.white,
+                                    size: height * 0.025,
+                                  )
+                                ],
+                              ),
                             ),
                           ),
                         ),
@@ -225,47 +233,51 @@ class _ContactState extends State<Contact> {
                           sigmaX: isContacthovered ? 20 : 25,
                           sigmaY: isContacthovered ? 20 : 25,
                         ),
-                        child: GestureDetector(
-                          onTap: () {
-                            setState(() {
-                              isContacthovered = true;
-                            });
-                            var data =
-                                const ClipboardData(text: "918368313300");
-                            Clipboard.setData(data);
-                            customSnackBar(
-                                context, "COPIED TO CLIPBOARD", Colors.black54);
-                            setState(() {
-                              isContacthovered = false;
-                            });
-                          },
-                          child: Container(
-                            height: height * 0.05,
-                            width: width * 0.40,
-                            decoration: BoxDecoration(
-                              color: Colors.white
-                                  .withOpacity(isContacthovered ? 0.5 : 0.25),
-                              borderRadius: BorderRadius.circular(25),
-                              border: Border.all(
-                                  width: 2,
-                                  color: isContacthovered
-                                      ? Colors.white
-                                      : Colors.white30),
-                            ),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Text(
-                                  "+918368313300",
-                                  style: GoogleFonts.dosis(
-                                    textStyle: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: height * 0.025,
-                                      fontWeight: FontWeight.w600,
+                        child: Material(
+                          color: Colors.transparent,
+                          child: InkWell(
+                            highlightColor: Colors.transparent,
+                            onTap: () {
+                              setState(() {
+                                isContacthovered = true;
+                              });
+                              var data =
+                                  const ClipboardData(text: "918368313300");
+                              Clipboard.setData(data);
+                              customSnackBar(context, "COPIED TO CLIPBOARD",
+                                  Colors.black54);
+                              setState(() {
+                                isContacthovered = false;
+                              });
+                            },
+                            child: Container(
+                              height: height * 0.05,
+                              width: width < 800 ? width * 0.45 : width * 0.20,
+                              decoration: BoxDecoration(
+                                color: Colors.white
+                                    .withOpacity(isContacthovered ? 0.5 : 0.25),
+                                borderRadius: BorderRadius.circular(25),
+                                border: Border.all(
+                                    width: 2,
+                                    color: isContacthovered
+                                        ? Colors.white
+                                        : Colors.white30),
+                              ),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    "+918368313300",
+                                    style: GoogleFonts.dosis(
+                                      textStyle: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: height * 0.025,
+                                        fontWeight: FontWeight.w600,
+                                      ),
                                     ),
                                   ),
-                                ),
-                              ],
+                                ],
+                              ),
                             ),
                           ),
                         ),
@@ -290,40 +302,44 @@ class _ContactState extends State<Contact> {
                           sigmaX: isCallHovered ? 20 : 25,
                           sigmaY: isCallHovered ? 20 : 25,
                         ),
-                        child: GestureDetector(
-                          onTap: () {
-                            setState(() {
-                              isCallHovered = true;
-                            });
-                            sendSms();
-                            setState(() {
-                              isCallHovered = false;
-                            });
-                          },
-                          child: Container(
-                            height: height * 0.05,
-                            width: width * 0.05,
-                            decoration: BoxDecoration(
-                              color: Colors.white
-                                  .withOpacity(isCallHovered ? 0.5 : 0.25),
-                              borderRadius: BorderRadius.circular(25),
-                              border: Border.all(
-                                  width: 2,
-                                  color: isCallHovered
-                                      ? Colors.white
-                                      : Colors.white30),
-                            ),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Icon(
-                                  Icons.call,
-                                  color: isCallHovered
-                                      ? Colors.greenAccent
-                                      : Colors.white,
-                                  size: height * 0.025,
-                                )
-                              ],
+                        child: Material(
+                          color: Colors.transparent,
+                          child: InkWell(
+                            highlightColor: Colors.transparent,
+                            onTap: () {
+                              setState(() {
+                                isCallHovered = true;
+                              });
+                              sendSms();
+                              setState(() {
+                                isCallHovered = false;
+                              });
+                            },
+                            child: Container(
+                              height: height * 0.05,
+                              width: width < 800 ? width * 0.05 : width * 0.035,
+                              decoration: BoxDecoration(
+                                color: Colors.white
+                                    .withOpacity(isCallHovered ? 0.5 : 0.25),
+                                borderRadius: BorderRadius.circular(25),
+                                border: Border.all(
+                                    width: 2,
+                                    color: isCallHovered
+                                        ? Colors.white
+                                        : Colors.white30),
+                              ),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Icon(
+                                    Icons.call,
+                                    color: isCallHovered
+                                        ? Colors.greenAccent
+                                        : Colors.white,
+                                    size: height * 0.025,
+                                  )
+                                ],
+                              ),
                             ),
                           ),
                         ),

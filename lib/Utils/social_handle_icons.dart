@@ -48,22 +48,33 @@ class _SocialHandleIconState extends State<SocialHandleIcon> {
             sigmaX: ishovered ? 20 : 1.5,
             sigmaY: ishovered ? 20 : 1.5,
           ),
-          child: Container(
-            height: height * 0.1,
-            width: width * 0.1,
-            decoration: BoxDecoration(
-              color: Colors.white.withOpacity(ishovered ? 0.5 : 0.25),
+          child: Material(
+            color: Colors.transparent,
+            child: InkWell(
+              highlightColor: Colors.transparent,
+              onTap: () {
+                redirect(widget.redirecturl);
+              },
               borderRadius: BorderRadius.circular(25),
-              border: Border.all(
-                  width: 2, color: ishovered ? Colors.white : Colors.white30),
-            ),
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: SvgPicture.asset(
-                widget.svgpath,
-                color: ishovered ? widget.iconhovercolor : Colors.white,
-                height: height * 0.075,
-                width: width * 0.075,
+              child: Container(
+                height: height * 0.1,
+                width: width * 0.1,
+                decoration: BoxDecoration(
+                  color: Colors.white.withOpacity(ishovered ? 0.5 : 0.25),
+                  borderRadius: BorderRadius.circular(25),
+                  border: Border.all(
+                      width: 2,
+                      color: ishovered ? Colors.white : Colors.white30),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: SvgPicture.asset(
+                    widget.svgpath,
+                    color: ishovered ? widget.iconhovercolor : Colors.white,
+                    height: height * 0.075,
+                    width: width * 0.075,
+                  ),
+                ),
               ),
             ),
           ),
