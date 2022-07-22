@@ -58,8 +58,7 @@ class _SocialHandleIconState extends State<SocialHandleIcon> {
                 ishovered = false;
               });
             },
-            child: AnimatedContainer(
-              duration: const Duration(microseconds: 1500),
+            child: Container(
               height: height * 0.1,
               width: width * 0.1,
               decoration: BoxDecoration(

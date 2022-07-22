@@ -54,8 +54,7 @@ class _ContactState extends State<Contact> {
           sigmaX: 1.5,
           sigmaY: 1.5,
         ),
-        child: AnimatedContainer(
-          duration: const Duration(microseconds: 1500),
+        child: Container(
           height: height * 0.35,
           width: width < 800 ? width * 0.6 : width * 0.50,
           decoration: BoxDecoration(
@@ -114,8 +113,7 @@ class _ContactState extends State<Contact> {
                               isMailhovered = false;
                             });
                           },
-                          child: AnimatedContainer(
-                            duration: const Duration(microseconds: 1500),
+                          child: Container(
                             height: height * 0.05,
                             width: width * 0.40,
                             decoration: BoxDecoration(
@@ -176,8 +174,7 @@ class _ContactState extends State<Contact> {
                               isSendEmailHovered = false;
                             });
                           },
-                          child: AnimatedContainer(
-                            duration: const Duration(microseconds: 1500),
+                          child: Container(
                             height: height * 0.05,
                             width: width * 0.05,
                             decoration: BoxDecoration(
@@ -242,8 +239,7 @@ class _ContactState extends State<Contact> {
                               isContacthovered = false;
                             });
                           },
-                          child: AnimatedContainer(
-                            duration: const Duration(microseconds: 1500),
+                          child: Container(
                             height: height * 0.05,
                             width: width * 0.40,
                             decoration: BoxDecoration(
@@ -304,8 +300,7 @@ class _ContactState extends State<Contact> {
                               isCallHovered = false;
                             });
                           },
-                          child: AnimatedContainer(
-                            duration: const Duration(microseconds: 1500),
+                          child: Container(
                             height: height * 0.05,
                             width: width * 0.05,
                             decoration: BoxDecoration(
