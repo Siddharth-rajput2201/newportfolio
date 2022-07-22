@@ -47,7 +47,7 @@ class _ProjectsState extends State<Projects> {
             child: AnimatedContainer(
               duration: const Duration(microseconds: 1500),
               height: height * 0.15,
-              width: width * 0.50,
+              width: width < 800 ? width * 0.6 : width * 0.50,
               decoration: BoxDecoration(
                 color: Colors.white.withOpacity(ishovered ? 0.5 : 0.25),
                 borderRadius: BorderRadius.circular(25),

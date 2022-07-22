@@ -57,7 +57,7 @@ class _ContactState extends State<Contact> {
         child: AnimatedContainer(
           duration: const Duration(microseconds: 1500),
           height: height * 0.35,
-          width: width * 0.50,
+          width: width < 800 ? width * 0.6 : width * 0.50,
           decoration: BoxDecoration(
             color: Colors.white.withOpacity(0.3),
             borderRadius: BorderRadius.circular(25),
