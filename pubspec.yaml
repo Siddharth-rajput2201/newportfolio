@@ -72,6 +72,9 @@ flutter:
     - assets/images/Hassle_Free_Logo.png
     - assets/images/downloadsvg.svg
     - assets/images/websvg.svg
+    - assets/images/padhlologo.png
+    - assets/images/coivd19tracker.png
+    - assets/images/homepricepredictorapplogo.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

@@ -16,6 +16,7 @@ class ProjectTile extends StatefulWidget {
   final double imageWidth;
   final bool showWebIcon;
   final String webUrl;
+  final bool showDownloadIcon;
   const ProjectTile(
       {Key? key,
       required this.projectName,
@@ -27,6 +28,7 @@ class ProjectTile extends StatefulWidget {
       required this.imageWidth,
       required this.projectDescription,
       required this.showWebIcon,
+      required this.showDownloadIcon,
       required this.webUrl})
       : super(key: key);
 
@@ -38,6 +40,7 @@ class _ProjectTileState extends State<ProjectTile> {
   String firstHalf = "";
   String secondHalf = "";
   bool flag = true;
+
   @override
   void initState() {
     if (widget.projectDescription.length > 80) {
@@ -53,12 +56,13 @@ class _ProjectTileState extends State<ProjectTile> {
 
   @override
   Widget build(BuildContext context) {
+    var height = MediaQuery.of(context).size.height;
     return Padding(
       padding: const EdgeInsets.all(15.0),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(25),
         child: BackdropFilter(
-          filter: ImageFilter.blur(sigmaX: 1.5, sigmaY: 1.5),
+          filter: ImageFilter.blur(sigmaX: 7, sigmaY: 7),
           child: Container(
             width: widget.width,
             decoration: BoxDecoration(
@@ -101,7 +105,7 @@ class _ProjectTileState extends State<ProjectTile> {
                               style: GoogleFonts.squarePeg(
                                   textStyle:
                                       const TextStyle(color: Colors.white),
-                                  fontSize: 45,
+                                  fontSize: height * 0.055,
                                   fontWeight: FontWeight.w800)),
                         ),
                       ),
@@ -128,8 +132,10 @@ class _ProjectTileState extends State<ProjectTile> {
                                       : (firstHalf) + (secondHalf)
                                   : firstHalf,
                               style: GoogleFonts.dosis(
-                                  textStyle:
-                                      const TextStyle(color: Colors.white)),
+                                  textStyle: TextStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.w500,
+                                      fontSize: height * 0.02)),
                             ),
                             TextSpan(
                               text: secondHalf.isNotEmpty
@@ -138,7 +144,10 @@ class _ProjectTileState extends State<ProjectTile> {
                                       : " show less"
                                   : "",
                               style: GoogleFonts.dosis(
-                                textStyle: const TextStyle(color: Colors.blue),
+                                textStyle: TextStyle(
+                                    color: Colors.blue,
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: height * 0.02),
                               ),
                               recognizer: TapGestureRecognizer()
                                 ..onTap = () => setState(
@@ -165,11 +174,13 @@ class _ProjectTileState extends State<ProjectTile> {
                         const SizedBox(
                           width: 10,
                         ),
-                        SocialHandleIcon(
-                          iconhovercolor: Colors.white,
-                          svgpath: "assets/images/downloadsvg.svg",
-                          redirecturl: widget.downloadurl,
-                        ),
+                        widget.showDownloadIcon
+                            ? SocialHandleIcon(
+                                iconhovercolor: Colors.white,
+                                svgpath: "assets/images/downloadsvg.svg",
+                                redirecturl: widget.downloadurl,
+                              )
+                            : const SizedBox(),
                         const SizedBox(
                           width: 10,
                         ),
