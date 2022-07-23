@@ -18,7 +18,7 @@ class Profile extends StatelessWidget {
         child: AnimatedContainer(
           duration: const Duration(microseconds: 1600),
           height: height * 0.75,
-          width: width < 800 ? width * 0.65 : width * 0.3,
+          width: width < 800 ? width * 0.80 : width * 0.3,
           decoration: BoxDecoration(
             color: Colors.white.withOpacity(0.3),
             borderRadius: BorderRadius.circular(25),
