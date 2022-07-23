@@ -50472,7 +50472,7 @@ M(a4,a5){var s,r,q,p,o,n,m,l,k,j,i,h,g,f,e,d,c,b,a=this,a0=null,a1=t.w,a2=a5.R(a
 a1=A.bU(25)
 s=A.iH(1.5,1.5)
 r=a3<800
-q=r?a3*0.65:a3*0.3
+q=r?a3*0.8:a3*0.3
 p=A.ay(B.e.a8(76.5),255,255,255)
 o=A.bU(25)
 n=A.ii(B.ai,2)
@@ -50637,7 +50637,7 @@ A.Dv.prototype={
 M(a,b){var s,r,q,p,o,n,m=null,l=t.w,k=b.R(l).f.a.b,j=b.R(l).f.a.a
 l=A.bU(25)
 s=A.iH(1.5,1.5)
-r=j<800?j*0.65:j*0.3
+r=j<800?j*0.8:j*0.3
 q=A.ay(B.e.a8(76.5),255,255,255)
 p=A.bU(25)
 o=A.ii(B.ai,2)
